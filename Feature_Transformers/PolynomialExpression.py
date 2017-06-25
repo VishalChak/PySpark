@@ -28,6 +28,8 @@ polyExpansion = PolynomialExpansion(degree = 2, inputCol = "features",
 ps_df = polyExpansion.transform(df)
 print(df.first())
 print(ps_df.first())
+
+
 #ps_df.select('pe_feature').show()
 
 session.stop()
