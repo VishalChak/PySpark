@@ -16,7 +16,7 @@ def remove_outlier(dataset):
     num_dataset.apply(lambda x: x[(x>quant_df.loc[low,x.name]) & 
                                     (x < quant_df.loc[high,x.name])], axis=0)
     filt_df =  pd.concat([num_dataset,other_dataset], axis=1)
-    #filt_df.dropna(inplace=True)
+    filt_df.dropna(inplace=True)
     return filt_df
     
 
@@ -32,15 +32,14 @@ def dividedata(dataset):
             num_list.append(index)
         else:
             other_list.append(index)
-    print(num_list)
-    print(other_list)
     num_dataset = dataset[num_list]
     other_dataset = dataset[other_list]
     return num_dataset, other_dataset
 
 path = "D:/Vishal/Kaggle/Titanic/train.csv"
+path = "D:/Vishal/DataSets/Test.csv"
 dataset = pd.read_csv(path)
+dataset.hist()
 data = remove_outlier(dataset)
-'''print(dataset.shape)
-print(data.head())'''
-
+print(dataset.shape)
+print(data.shape)
